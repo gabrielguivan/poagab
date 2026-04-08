@@ -1,0 +1,14 @@
+{
+  "name": "gabrielguivan-manifesto",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page manifesto minimalista para o perfil @gabrielguivan",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
