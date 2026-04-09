@@ -7,8 +7,13 @@
 }
 
 :root {
-  --bg: #f5f1e8;
-  --text: #171512;
+  --bg-top: #faf4e9;
+  --bg: #f2ebde;
+  --bg-bottom: #e1d6c6;
+  --text: #171310;
+  --text-soft: rgba(23, 19, 16, 0.1);
+  --map-warmth: rgba(132, 89, 63, 0.14);
+  --map-shadow: rgba(78, 58, 47, 0.1);
 }
 
 * {
@@ -22,11 +27,24 @@ body {
 }
 
 body {
-  background: var(--bg);
+  background:
+    radial-gradient(58rem 28rem at 50% 0%, var(--map-warmth), transparent 58%),
+    radial-gradient(40rem 24rem at 18% 82%, var(--map-shadow), transparent 62%),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 52%, var(--bg-bottom) 100%);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(23, 19, 16, 0.03) 0%, transparent 16%, transparent 84%, rgba(23, 19, 16, 0.03) 100%),
+    radial-gradient(circle at center, transparent 52%, rgba(23, 19, 16, 0.045) 100%);
 }
 
 .page {
@@ -58,15 +76,15 @@ body {
 }
 
 .map-reference-shadow {
-  opacity: 0.12;
-  filter: grayscale(1) blur(10px) contrast(1.1);
+  opacity: 0.17;
+  filter: sepia(0.28) blur(14px) contrast(1.02) brightness(0.8);
   transform: translateY(4%) scale(1.02);
 }
 
 .map-reference-main {
-  opacity: 0.28;
+  opacity: 0.34;
   mix-blend-mode: multiply;
-  filter: grayscale(1) contrast(1) brightness(0.72);
+  filter: sepia(0.22) saturate(0.78) contrast(1.03) brightness(0.68);
 }
 
 h1 {
@@ -81,6 +99,7 @@ h1 {
   letter-spacing: -0.045em;
   text-align: center;
   text-wrap: balance;
+  text-shadow: 0 1px 0 rgba(255, 250, 244, 0.42);
 }
 
 @media (max-width: 720px) {
