@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Anthropic Serif";
-  src: url("./fonts/AnthropicSerif-Roman-Web.woff2") format("woff2");
+  font-family: "Editorial Serif";
+  src: url("./fonts/editorial-serif.woff2") format("woff2");
   font-style: normal;
   font-weight: 300 800;
   font-display: swap;
@@ -9,6 +9,10 @@
 :root {
   --bg: #e9dfd2;
   --text: #171310;
+  --map-shadow-opacity: 0.1;
+  --map-main-opacity: 0.24;
+  --map-shadow-filter: sepia(0.22) blur(7px) contrast(1.01) brightness(0.86);
+  --map-main-filter: sepia(0.16) saturate(0.58) contrast(1.01) brightness(0.78);
 }
 
 * {
@@ -32,8 +36,10 @@ body {
 .page {
   position: relative;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
   padding:
     calc(2rem + env(safe-area-inset-top))
     clamp(1.5rem, 5vw, 4rem)
@@ -51,41 +57,189 @@ body {
 
 .map-reference {
   position: absolute;
+  left: 50%;
+  top: 50%;
   height: min(88vh, 920px);
   width: auto;
   max-width: none;
-  transform: translateY(4%);
+  transform-origin: center;
 }
 
 .map-reference-shadow {
-  opacity: 0.17;
-  filter: sepia(0.28) blur(14px) contrast(1.02) brightness(0.8);
-  transform: translateY(4%) scale(1.02);
+  opacity: var(--map-shadow-opacity);
+  filter: var(--map-shadow-filter);
 }
 
 .map-reference-main {
-  opacity: 0.34;
+  opacity: var(--map-main-opacity);
   mix-blend-mode: multiply;
-  filter: sepia(0.22) saturate(0.78) contrast(1.03) brightness(0.68);
+  filter: var(--map-main-filter);
 }
 
-h1 {
+.title {
   position: relative;
   z-index: 1;
   margin: 0;
-  max-width: 10ch;
-  font-family: "Anthropic Serif", "Times New Roman", serif;
-  font-size: clamp(3.3rem, 8vw, 7.6rem);
+  font-family: "Editorial Serif", "Times New Roman", serif;
+  font-size: clamp(3.9rem, 7.2vw, 7.1rem);
   font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: -0.045em;
-  text-align: center;
-  text-wrap: balance;
+  line-height: 1.01;
+  letter-spacing: -0.042em;
+}
+
+.line {
+  display: block;
+}
+
+.theme-editorial {
+  --bg: #e7dccf;
+  --text: #15110f;
+  --map-shadow-opacity: 0.08;
+  --map-main-opacity: 0.2;
+  --map-shadow-filter: sepia(0.18) blur(5px) contrast(1.01) brightness(0.88);
+  --map-main-filter: sepia(0.14) saturate(0.46) contrast(1.01) brightness(0.8);
+}
+
+.theme-editorial .title {
+  max-width: 8.8ch;
+  text-align: left;
+  margin-left: clamp(1rem, 4vw, 4rem);
+  transform: translate(0, clamp(2vh, 3vh, 2.5rem));
+}
+
+.theme-editorial .line-b {
+  margin-left: 0.82ch;
+}
+
+.theme-editorial .map-reference-shadow {
+  height: min(100vh, 1080px);
+  transform: translate(-50%, -50%) translate(34vw, -2vh) rotate(-6deg) scale(1.01);
+}
+
+.theme-editorial .map-reference-main {
+  height: min(95vh, 1020px);
+  transform: translate(-50%, -50%) translate(36vw, -3vh) rotate(-5deg);
+}
+
+.theme-misteriosa {
+  --bg: #ddd0c0;
+  --text: #14100d;
+  --map-shadow-opacity: 0.22;
+  --map-main-opacity: 0.42;
+  --map-shadow-filter: sepia(0.42) blur(22px) contrast(1.05) brightness(0.74);
+  --map-main-filter: sepia(0.32) saturate(0.72) contrast(1.08) brightness(0.58);
+}
+
+.theme-misteriosa .title {
+  max-width: 8.2ch;
+  text-align: left;
+  transform: translate(clamp(-11vw, -9vw, -5rem), clamp(11vh, 14vh, 8rem));
+}
+
+.theme-misteriosa .line-b {
+  margin-left: 1.65ch;
+}
+
+.theme-misteriosa .map-reference-shadow {
+  height: min(134vh, 1440px);
+  transform: translate(-50%, -50%) translate(14vw, -2vh) rotate(-13deg) scale(1.05);
+}
+
+.theme-misteriosa .map-reference-main {
+  height: min(128vh, 1360px);
+  transform: translate(-50%, -50%) translate(17vw, -4vh) rotate(-12deg);
+}
+
+.theme-brutal {
+  --bg: #ece2d7;
+  --text: #130f0c;
+  --map-shadow-opacity: 0.13;
+  --map-main-opacity: 0.29;
+  --map-shadow-filter: sepia(0.22) blur(12px) contrast(1.04) brightness(0.8);
+  --map-main-filter: sepia(0.18) saturate(0.66) contrast(1.06) brightness(0.64);
+}
+
+.theme-brutal .title {
+  max-width: 7.9ch;
+  font-size: clamp(3.6rem, 9vw, 8.5rem);
+  text-align: left;
+  transform: translate(clamp(-16vw, -13vw, -8rem), clamp(-3vh, -1vh, 0rem));
+}
+
+.theme-brutal .line-b {
+  margin-left: 0.9ch;
+}
+
+.theme-brutal .map-reference-shadow {
+  height: min(122vh, 1300px);
+  transform: translate(-50%, -50%) translate(31vw, -18vh) rotate(-19deg) scale(1.02);
+}
+
+.theme-brutal .map-reference-main {
+  height: min(116vh, 1220px);
+  transform: translate(-50%, -50%) translate(34vw, -21vh) rotate(-18deg);
+}
+
+@media (max-width: 900px) {
+  .title {
+    font-size: clamp(3rem, 12vw, 6rem);
+  }
+
+  .theme-editorial .title,
+  .theme-misteriosa .title,
+  .theme-brutal .title {
+    max-width: 8.4ch;
+    transform: translate(0, 0);
+  }
+
+  .theme-editorial .line-b,
+  .theme-misteriosa .line-b,
+  .theme-brutal .line-b {
+    margin-left: 0;
+  }
+
+  .theme-editorial .map-reference-shadow,
+  .theme-editorial .map-reference-main,
+  .theme-misteriosa .map-reference-shadow,
+  .theme-misteriosa .map-reference-main,
+  .theme-brutal .map-reference-shadow,
+  .theme-brutal .map-reference-main {
+    height: 102vh;
+    transform: translate(-50%, -50%) translate(0, 2vh) rotate(-12deg);
+  }
 }
 
 @media (max-width: 720px) {
-  .map-reference {
-    height: 72vh;
-    transform: translateY(2%);
+  .page {
+    display: grid;
+    place-items: center;
+  }
+
+  .title {
+    text-align: center;
+    line-height: 1.02;
+  }
+
+  .theme-editorial .title,
+  .theme-misteriosa .title,
+  .theme-brutal .title {
+    max-width: 9ch;
+    transform: translate(0, 0);
+  }
+
+  .theme-editorial .line-b,
+  .theme-misteriosa .line-b,
+  .theme-brutal .line-b {
+    margin-left: 0;
+  }
+
+  .theme-editorial .map-reference-shadow,
+  .theme-editorial .map-reference-main,
+  .theme-misteriosa .map-reference-shadow,
+  .theme-misteriosa .map-reference-main,
+  .theme-brutal .map-reference-shadow,
+  .theme-brutal .map-reference-main {
+    height: 84vh;
+    transform: translate(-50%, -50%) translate(0, 2vh) rotate(-10deg);
   }
 }

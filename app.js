@@ -3,6 +3,14 @@ const isLocalEnvironment =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1" ||
   window.location.hostname === "::1";
+const supportedThemes = ["editorial", "misteriosa", "brutal"];
+const requestedTheme = new URLSearchParams(window.location.search).get("v");
+const activeTheme = supportedThemes.includes(requestedTheme) ? requestedTheme : "editorial";
+
+document.body.classList.remove(
+  ...supportedThemes.map((theme) => `theme-${theme}`)
+);
+document.body.classList.add(`theme-${activeTheme}`);
 
 if (!isLocalEnvironment) {
   window.va =

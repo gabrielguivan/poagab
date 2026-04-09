@@ -15,7 +15,7 @@
     <meta property="og:type" content="website" />
     <link
       rel="preload"
-      href="./fonts/AnthropicSerif-Roman-Web.woff2"
+      href="./fonts/editorial-serif.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -25,14 +25,17 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>@gabrielguivan</title>
   </head>
-  <body>
+  <body class="theme-editorial">
     <main class="page">
       <div class="map-layer" aria-hidden="true">
         <img class="map-reference map-reference-shadow" src="./poa-map.svg" alt="" />
         <img class="map-reference map-reference-main" src="./poa-map.svg" alt="" />
       </div>
 
-      <h1>my body is a map of poa</h1>
+      <h1 class="title">
+        <span class="line line-a">my body is a</span>
+        <span class="line line-b">map of poa</span>
+      </h1>
     </main>
 
     <script type="module" src="./app.js"></script>
