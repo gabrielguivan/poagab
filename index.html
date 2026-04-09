@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta
+      name="description"
+      content="my body is a map of poa"
+    />
+    <meta property="og:title" content="@gabrielguivan" />
+    <meta property="og:description" content="my body is a map of poa" />
+    <meta property="og:type" content="website" />
+    <link
+      rel="preload"
+      href="./fonts/AnthropicSerif-Roman-Web.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="./poa-map.svg" as="image" type="image/svg+xml" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>@gabrielguivan</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="map-layer" aria-hidden="true">
+        <img class="map-reference map-reference-shadow" src="./poa-map.svg" alt="" />
+        <img class="map-reference map-reference-main" src="./poa-map.svg" alt="" />
+      </div>
+
+      <h1>my body is a map of poa</h1>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
