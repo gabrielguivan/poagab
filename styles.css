@@ -92,6 +92,14 @@ body {
   display: block;
 }
 
+.desktop-copy {
+  display: block;
+}
+
+.mobile-copy {
+  display: none;
+}
+
 .theme-editorial {
   --bg: #e7dccf;
   --text: #15110f;
@@ -224,21 +232,34 @@ body {
   }
 
   .title {
-    max-width: 6.2ch;
-    font-size: clamp(3.15rem, 14.4vw, 4.9rem);
+    max-width: none;
+    font-size: clamp(3.08rem, 13.6vw, 4.55rem);
     text-align: left;
-    line-height: 0.98;
-    letter-spacing: -0.05em;
+    line-height: 0.95;
+    letter-spacing: -0.052em;
+  }
+
+  .desktop-copy {
+    display: none;
+  }
+
+  .mobile-copy {
+    display: block;
   }
 
   .theme-misteriosa .title,
   .theme-brutal .title {
-    max-width: 6.4ch;
+    max-width: none;
     transform: translate(0, 0);
   }
 
   .theme-misteriosa .line-b,
   .theme-brutal .line-b {
+    margin-left: 0;
+  }
+
+  .theme-misteriosa .line-c,
+  .theme-brutal .line-c {
     margin-left: 0;
   }
 
@@ -251,27 +272,30 @@ body {
   }
 
   .theme-editorial {
-    --map-shadow-opacity: 0.06;
-    --map-main-opacity: 0.16;
+    --map-shadow-opacity: 0.05;
+    --map-main-opacity: 0.15;
   }
 
   .theme-editorial .title {
-    max-width: 6.2ch;
     margin-left: 0;
-    transform: translate(0, 0);
+    transform: translate(0, -1.2vh);
   }
 
   .theme-editorial .line-b {
     margin-left: 0;
   }
 
+  .theme-editorial .line-c {
+    margin-left: 0.04ch;
+  }
+
   .theme-editorial .map-reference-shadow {
-    height: 78vh;
-    transform: translate(-50%, -50%) translate(18vw, -9vh) rotate(-8deg) scale(1.01);
+    height: 74vh;
+    transform: translate(-50%, -50%) translate(24vw, -12vh) rotate(-8deg) scale(1.01);
   }
 
   .theme-editorial .map-reference-main {
-    height: 74vh;
-    transform: translate(-50%, -50%) translate(21vw, -11vh) rotate(-7deg);
+    height: 70vh;
+    transform: translate(-50%, -50%) translate(27vw, -14vh) rotate(-7deg);
   }
 }
