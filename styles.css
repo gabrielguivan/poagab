@@ -104,7 +104,7 @@ body {
   max-width: 8.8ch;
   text-align: left;
   margin-left: clamp(1rem, 4vw, 4rem);
-  transform: translate(0, clamp(2vh, 3vh, 2.5rem));
+  transform: translate(0, clamp(0.5vh, 1.5vh, 1.25rem));
 }
 
 .theme-editorial .line-b {
@@ -112,13 +112,13 @@ body {
 }
 
 .theme-editorial .map-reference-shadow {
-  height: min(100vh, 1080px);
-  transform: translate(-50%, -50%) translate(34vw, -2vh) rotate(-6deg) scale(1.01);
+  height: min(95vh, 1020px);
+  transform: translate(-50%, -50%) translate(35vw, -3vh) rotate(-6deg) scale(1.01);
 }
 
 .theme-editorial .map-reference-main {
-  height: min(95vh, 1020px);
-  transform: translate(-50%, -50%) translate(36vw, -3vh) rotate(-5deg);
+  height: min(90vh, 970px);
+  transform: translate(-50%, -50%) translate(37vw, -4vh) rotate(-5deg);
 }
 
 .theme-misteriosa {
